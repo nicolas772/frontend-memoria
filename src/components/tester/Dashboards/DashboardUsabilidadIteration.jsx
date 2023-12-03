@@ -56,7 +56,6 @@ const DashboardUsabilidadIteration = (props) => {
       DashboardIterationService.getBoxPlotContentUsability(idIteration).then(
          (response) => {
             setBoxPlotContent(response.data)
-            console.log(response.data)
             setLoading3(false)
          },
          (error) => {

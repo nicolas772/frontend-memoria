@@ -1,6 +1,8 @@
 import axios from "axios";
+import link from "./host-link";
 
-const API_URL = "http://localhost:8080/api/auth/";
+//const API_URL = "http://localhost:8080/api/auth/";
+const API_URL = link + "api/auth/";
 
 const register = (username, email, password, isTester, sex, birthday) => {
   const roles = isTester ? ["tester"] : ["user"]

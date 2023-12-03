@@ -1,6 +1,8 @@
 import axios from "axios";
+import link from "./host-link";
 
-const API_URL = "http://localhost:8080/api/iteration/";
+//const API_URL = "http://localhost:8080/api/iteration/";
+const API_URL = link + "api/iteration/"
 
 const create = (idstudy, objetivo, startDate, endDate) => {
   return axios.post(API_URL + "create", {
