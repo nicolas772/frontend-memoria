@@ -1,0 +1,159 @@
+/*Estilos para los componentes FormStudy, FormIteration y FormTask*/
+.background-image {
+	background-image: linear-gradient(to right top, #edf4fb, #e9eff4);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.container-create-form {
+	font-family: sans-serif;
+	/* Otras propiedades específicas */
+	min-height: 110vh;
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	width: 50%;
+	/* Ajusta el ancho de las columnas según tus preferencias */
+	padding: 5px;
+	/* Añade espaciado interior si es necesario */
+	/* Puedes agregar más estilos aquí según tus necesidades */
+}
+
+.createForm-div {
+	position: relative;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -55%);
+	padding-top: 7%;
+}
+
+.createForm-div h1 {
+	margin: 0 0 30px;
+	padding: 0;
+	color: #435F7A;
+	text-align: center;
+	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+	transition: .5s;
+	animation: LabelOnLoad 1s forwards 0s ease;
+}
+
+.createForm-div p {
+	margin: 0 30px 30px;
+	padding: 0;
+	color: #435F7A;
+	text-align: justify;
+	font-family: "Poppins", sans-serif;
+	font-weight: 300;
+	transition: .5s;
+	animation: LabelOnLoad 1s forwards 0s ease;
+}
+
+.box-createForm {
+	position: relative;
+	left: 10%;
+	width: 400px;
+	padding: 20px;
+	padding-top: 35px;
+	background: #435F7A;
+	box-sizing: border-box;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+	border-radius: 10px;
+}
+
+.box-createForm .inputBox {
+	display: flex;
+	justify-content: center;
+}
+
+.box-createForm .labelBox {
+	display: flex;
+	justify-content: center;
+}
+
+.box-createForm .labelBox label {
+	position: relative;
+	text-align: center;
+	line-height: 2;
+	font-size: 15px;
+	color: #D5E8FB;
+	pointer-events: none;
+	transition: .5s;
+	animation: LabelOnLoad 1s forwards 0s ease;
+}
+
+.box-createForm .buttons-div {
+	display: flex;
+	justify-content: center;
+}
+
+.box-createForm button[type='button'] {
+	background: transparent;
+	border: none;
+	outline: none;
+	color: #FFF;
+	background: #6B96C2;
+	/*background: #486682; este es para disabled*/
+	padding: 10px 20px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 15px;
+	font-weight: 400;
+	margin: 10px;
+	/* Espacio entre botones */
+}
+
+.box-createForm button[type='button']:hover {
+	background-color: rgba(3, 169, 244, 0.7);
+}
+
+.box-createForm button[type='button']:disabled {
+	/* Estilos para botones con la propiedad disabled */
+	background-color: #4a6a87;
+}
+
+.box-createForm .react-datepicker__input-container {
+	display: flex;
+	justify-content: center;
+}
+
+#miTextarea {
+	width: 70%;
+	text-align: center;
+}
+#miTextarea2 {
+	width: 90%;
+	text-align: left;
+}
+
+.container-duracion-optima {
+	display: flex;
+	justify-content: space-between;
+}
+
+.container-duracion-optima .column-duracion-optima-left {
+	display: flex;
+	justify-content: left;
+	width: 100%;
+}
+.container-duracion-optima .column-duracion-optima-right {
+	display: flex;
+	justify-content: right;
+	width: 100%;
+}
+.container-duracion-optima .column-dots {
+	display: flex;
+	justify-content: center;
+	width: 10%;
+	text-align: center;
+	font-weight: 600;
+	line-height: 2.3;
+	font-size: 15px;
+	color: #D5E8FB;
+	pointer-events: none;
+	transition: .5s;
+	animation: LabelOnLoad 1s forwards 0s ease;
+}

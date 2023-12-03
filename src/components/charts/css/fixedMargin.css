@@ -1,0 +1,8 @@
+/* fix de las leyendas y valores para MetricCardCategoryBar */
+.legend-text p {
+  margin-bottom: 0;
+}
+  
+.app .block{
+    margin-bottom: 0px;
+}

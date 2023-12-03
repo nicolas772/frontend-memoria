@@ -1,0 +1,11 @@
+.zoomable-tag:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
+    cursor: default;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0.6;
+    }
+}

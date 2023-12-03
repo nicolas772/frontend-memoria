@@ -1,0 +1,314 @@
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+
+a {
+	color: #1976d2;
+}
+
+p {
+	margin-bottom: 0px;
+}
+
+.gradient-background-pages {
+	font-family: sans-serif;
+	/* 	background: url(bg.jpg); */
+	background-image: linear-gradient(to right top, #edf4fb, #e9eff4);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 500vh;
+	/* O ajusta la altura según tus necesidades */
+	display: flex;
+}
+
+
+.welcome-div {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 600px;
+	padding-top: 7%;
+}
+
+.welcome-div-tester {
+	position: relative;
+	top: 0%;
+	left: 0%;
+	transform: translate(-50%, -50%);
+	width: 90%;
+	max-width: 1200px;  /* Establece un ancho máximo para evitar que el contenido se vuelva demasiado ancho */
+	padding-top: 4%;
+	transition: 0.5s;
+	animation: LabelOnLoad 1s forwards 0s ease;
+	overflow-x: hidden;  /* Oculta la barra de desplazamiento horizontal */
+	margin-left: auto;  /* Centra el contenedor en el centro de la pantalla */
+	margin-right: auto;
+  }
+
+.welcome-div h1 {
+	margin: 0 0 30px;
+	padding: 0;
+	color: #435F7A;
+	text-align: center;
+	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+	transition: .5s;
+	animation: LabelOnLoad 1s forwards 0s ease;
+}
+
+.welcome-div p {
+	margin: 0 0 30px;
+	padding: 0;
+	color: #435F7A;
+	text-align: center;
+	font-family: "Poppins", sans-serif;
+	font-weight: 350;
+	transition: .5s;
+	animation: LabelOnLoad 1s forwards 0s ease;
+}
+
+.welcome-div-tester h1 {
+	margin: 0 0 30px;
+	padding: 0;
+	color: #435F7A;
+	text-align: center;
+	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+	transition: .5s;
+	animation: LabelOnLoad 1s forwards 0s ease;
+}
+
+.welcome-div-tester .subtitle p {
+	
+	padding: 0;
+	color: #435F7A;
+	text-align: center;
+	font-family: "Poppins", sans-serif;
+	font-weight: 350;
+	transition: .5s;
+	animation: LabelOnLoad 1s forwards 0s ease;
+}
+
+.box-code-study {
+	position: relative;
+	top: 15%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 400px;
+	padding: 20px;
+	background: #435F7A;
+	box-sizing: border-box;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+	border-radius: 10px;
+}
+
+.box-code-iteration {
+	position: relative;
+	left: 15%;
+	width: 450px;
+	padding: 20px;
+	background: #435F7A;
+	box-sizing: border-box;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+	border-radius: 10px;
+}
+
+.box-code-iteration h4 {
+	/*margin: 0 0 30px;*/
+	padding: 0;
+	color: #D5E8FB;
+	text-align: left;
+	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+	transition: .5s;
+	animation: LabelOnLoad 1s forwards 0s ease;
+}
+
+.box-code-iteration li {
+	margin: 0 0 5px;
+	padding: 0;
+	color: #D5E8FB;
+	text-align: left;
+	font-family: "Poppins", sans-serif;
+	font-weight: 400;
+	transition: .5s;
+	animation: LabelOnLoad 1s forwards 0s ease;
+}
+
+.box-code-study .inputBox {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.box-code-study .inputBox label {
+	position: relative;
+	text-align: center;
+	line-height: 2;
+	font-size: 16px;
+	color: #D5E8FB;
+	pointer-events: none;
+	transition: .5s;
+	animation: LabelOnLoad 1s forwards 0s ease;
+	margin-right: 10px;
+}
+
+.centered-input {
+	text-align: center;
+}
+
+.box-code-study .inputBox input:focus~label,
+.box-code-study .inputBox input:valid~label {
+	top: -19px;
+	left: 0;
+	color: #03A9F4;
+	font-size: 11px;
+}
+
+.button-container {
+	display: flex;
+	justify-content: center;
+}
+
+.box-code-study input[type='submit'] {
+	background: transparent;
+	border: none;
+	outline: none;
+	color: #FFF;
+	background: #6B96C2;
+	padding: 10px 20px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 15px;
+	font-weight: 520;
+}
+
+.box-code-study input[type='submit']:hover {
+	background-color: rgba(3, 169, 244, 0.7);
+}
+
+.box-code-iteration button[type='button'] {
+	background: transparent;
+	border: none;
+	outline: none;
+	color: #FFF;
+	background: #6B96C2;
+	padding: 10px 20px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 15px;
+	font-weight: 520;
+}
+
+.box-code-iteration button[type='button']:hover {
+	background-color: rgba(3, 169, 244, 0.7);
+}
+
+.form-control[type="tel"] {
+	width: 100px;
+}
+
+.button-primary {
+	background: transparent;
+	background-color: #435F7A;
+	color: #FFF;
+}
+
+.button-primary:hover {
+	background: transparent;
+	background-color: #6B96C2;
+	color: #FFF;
+}
+
+.header-pages header {
+	margin: 0 0 30px;
+	padding: 0;
+	color: #344b60;
+	text-align: left;
+	font-family: "Poppins", sans-serif;
+	transition: .5s;
+	animation: LabelOnLoad 1s forwards 0s ease;
+}
+
+.code-container {
+	display: flex;
+	align-items: center;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 5px;
+	cursor: pointer;
+	width: 100px;
+	transition: background-color 0.3s;
+}
+
+.code-container.copied {
+	background-color: green;
+	/* Cambia el fondo a verde cuando se ha copiado */
+	color: white;
+	/* Cambia el color del texto a blanco para mayor visibilidad */
+}
+
+.code-container.disabled {
+	background-color: #e0e0e0; /* Cambia a tu color más claro */
+	color: #808080; /* Cambia a tu color de texto más claro si es necesario */
+	cursor: not-allowed; /* Cambia a not-allowed para indicar que está desactivado */
+  }
+
+.copy-icon {
+	width: 20px;
+	/* Tamaño personalizado */
+	height: 20px;
+	/* Tamaño personalizado */
+	margin-left: 15px;
+	/* Añadir espacio entre el ícono y el texto */
+}
+
+.parrafo {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-bottom: 5px;
+}
+
+.duracion-optima-div {
+	display: flex;
+	align-items: center;
+}
+
+.metric-card-icon {
+	width: 20px;
+	/* Tamaño personalizado */
+	height: 20px;
+	/* Tamaño personalizado */
+	align-self: flex-start;
+	margin-right: 5px;
+}
+
+.sentiment-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center; /* Añadido para centrar horizontalmente */
+	margin-left: 20%;
+	margin-right: 20%;
+  }
+  
+  .sentiment-icon {
+	cursor: pointer;
+	transition: color 0.3s ease;
+	color: #21252974;
+	/* Agrega una transición suave al cambio de color */
+  }
+  
+  .sentiment-icon:hover {
+	color: #212529c0;
+	/* Aumenta la intensidad del color al pasar el mouse sobre el ícono */
+  }
+  
+  .sentiment-icon.selected {
+	color: #212529;
+	/* Aumenta aún más la intensidad del color cuando está seleccionado */
+  }

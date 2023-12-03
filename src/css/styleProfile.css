@@ -1,0 +1,102 @@
+.profile-div {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -55%);
+	width: 600px;
+	padding-top: 7%;
+}
+
+.profile-div h1 {
+	margin: 0 0 30px;
+	padding: 0;
+	color: #435F7A;
+	text-align: center;
+	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+	transition: .5s;
+	animation: LabelOnLoad 1s forwards 0s ease;
+}
+
+.profile-div p {
+	margin: 0 0 30px;
+	padding: 0;
+	color: #435F7A;
+	text-align: center;
+	font-family: "Poppins", sans-serif;
+	font-weight: 300;
+	transition: .5s;
+	animation: LabelOnLoad 1s forwards 0s ease;
+}
+
+.box-profile {
+	position: relative;
+	top: 15%;
+	left: 50%;
+	transform: translate(-50%, -22%);
+	width: 450px;
+	padding: 20px;
+	padding-top: 30px;
+	background: #435F7A;
+	box-sizing: border-box;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+	border-radius: 10px;
+}
+
+.box-profile .inputBox {
+	display: flex;
+	justify-content: center;
+}
+
+.box-profile .labelBox {
+	display: flex;
+	justify-content: center;
+    
+}
+
+.box-profile .labelBox label {
+	position: relative;
+	text-align: center;
+	line-height: 2;
+	font-size: 15px;
+	color: #D5E8FB;
+	pointer-events: none;
+	transition: .5s;
+	animation: LabelOnLoad 1s forwards 0s ease;
+}
+
+.box-profile .buttons-div {
+    display: flex;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+.box-profile button[type='button'] {
+	background: transparent;
+	border: none;
+	outline: none;
+	color: #FFF;
+	background: #6B96C2;
+	/*background: #486682; este es para disabled*/
+	padding: 10px 20px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 15px;
+	font-weight: 400;
+	margin: 10px;
+	/* Espacio entre botones */
+}
+
+.box-profile button[type='button']:hover {
+	background-color: rgba(3, 169, 244, 0.7);
+}
+
+.box-profile button[type='button']:disabled {
+	/* Estilos para botones con la propiedad disabled */
+	background-color: #4a6a87;
+}
+
+.form-control[type="text"] {
+	width: 60%;
+    text-align: center;
+}

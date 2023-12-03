@@ -1,0 +1,95 @@
+$background-color: #ffffff;
+
+/** --- CONTROL --------*/
+$range-height: 7.7px;
+.range {
+	background: $background-color;
+	border-radius: 4px;
+	display: flex;
+	justify-content: space-between;
+	height: $range-height;
+	margin: 1rem auto 3rem;
+	width: calc(100% - #{$range-height * 2});
+
+	&__level {
+		position: relative;
+        //top: -$range-height/1.4;
+		top: calc(-1 * $range-height / 1.4);
+	}
+
+	&__radio {
+		position: relative;
+		cursor: pointer;
+
+		&.unselected::before {
+			background-color: #557b9d;
+			height: $range-height;
+			width: $range-height;
+		}
+
+		&.selected::before {
+			height: $range-height * 2 !important;
+			width: $range-height * 2 !important;
+		}
+
+		&::after {
+			content: attr(data-label);
+			color: #d2e5f6;
+			display: inline-block;
+			font-size: 13px;
+			left: 50%;
+			line-height: 0.9rem;
+			position: absolute;
+			text-align: center;
+			top: 0.8rem;
+			transform: translatex(-50%);
+			transition: color 0.25s ease;
+		}
+
+		&::before {
+			background-color: #263746;
+			background-clip: content-box;
+			border-radius: 100%;
+			box-sizing: content-box;
+			content: "";
+			display: inline-block;
+			height: $range-height * 2;
+			padding: 20px - $range-height 25px;
+			position: absolute;
+			top: 1;
+			transform: translate(-50%, -50%);
+			transition: width 0.25s ease, height 0.25s ease;
+			width: $range-height * 2;
+		}
+	}
+
+	&:hover &__radio:not(:hover)::before {
+		height: $range-height;
+		width: $range-height;
+	}
+
+	&:hover &__radio:not(.selected):hover {
+		&::after {
+			color: #ffffff;
+		}
+		&::before {
+			height: $range-height * 2;
+			width: $range-height * 2;
+		}
+	}
+
+	input {
+		position: absolute;
+		//top: 40px;
+		visibility: hidden;
+
+		&:checked + .range__radio::before {
+			height: $range-height * 2;
+			width: $range-height * 2;
+		}
+		&:checked + .range__radio::after {
+			color: #263746;
+			text-align: center;
+		}
+	}
+}

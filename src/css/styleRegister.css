@@ -1,0 +1,237 @@
+.gradient-background-register {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    /* 	background: url(bg.jpg); */
+    background-image: linear-gradient(to right top, #D5E8FB, #a5b8c9);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    /* Cambio a flex-direction para manejar el estiramiento vertical */
+    justify-content: center;
+    /* Centrar verticalmente */
+    align-items: center;
+    /* Centrar horizontalmente */
+    min-height: 100vh;
+    /* Establecer la altura mínima para que el fondo siempre se ajuste al contenido */
+}
+
+.box-register {
+    width: 450px;
+    padding: 40px;
+    background: rgba(0, 0, 0, .8);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    margin: 20px 0;
+    /* Espacio arriba y abajo */
+}
+
+.box-sentiment {
+    margin-top: 30px;
+    /* Espacio entre subtítulo y box */
+    width: 600px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background: #6a97c2;
+    box-sizing: border-box;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.box-register h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #FFF;
+    text-align: center;
+}
+
+.box-register p {
+    margin: 20px 0 30px;
+    padding: 0;
+    color: #FFF;
+}
+
+.box-register .inputBox {
+    position: relative;
+}
+
+.box-register .inputBoxCheckbox {
+    position: relative;
+}
+
+.box-register .inputBoxConfirmation {
+    position: relative;
+    margin: 20px 0 15px;
+    font-size: 16px;
+    color: #FFF;
+    transition: .5s;
+    animation: LabelOnLoad 1s forwards 0s ease;
+}
+
+.box-register .inputBox select {
+    width: 100%;
+    padding-top: 23px;
+    padding-bottom: 6px;
+    font-size: 16px;
+    color: #FFF;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #FFF;
+    outline: none;
+    background: transparent;
+    appearance: none;
+    /* Para desactivar el estilo nativo del navegador */
+    -webkit-appearance: none;
+    /* Para navegadores basados en Webkit */
+    -moz-appearance: none;
+    /* Para navegadores basados en Gecko */
+}
+
+.box-register .inputBox .custom-select-day {
+    width: 15%;
+    /* Distribuir igualmente y considerar espacios */
+    margin-right: 10px;
+    /* Espacio entre campos */
+    padding-top: 10px;
+    padding-right: 1px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.box-register .inputBox .custom-select-month {
+    width: 40%;
+    /* Distribuir igualmente y considerar espacios */
+    margin-right: 10px;
+    /* Espacio entre campos */
+    padding-top: 10px;
+    padding-right: 1px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.box-register .inputBox .custom-select-year {
+    width: 30%;
+    /* Distribuir igualmente y considerar espacios */
+    margin-right: 10px;
+    /* Espacio entre campos */
+    padding-top: 10px;
+    padding-right: 1px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.box-register .inputBox select~label {
+    top: -15px;
+    left: 0;
+    color: #FFF;
+    font-size: 16px;
+    transition: .5s;
+    animation: LabelOnLoad 1s forwards 0s ease;
+}
+
+.box-register .inputBox select:focus~label,
+.box-register .inputBox select:valid~label {
+    top: -15px;
+    left: 0;
+    color: #03A9F4;
+    font-size: 12px;
+}
+
+.box-register .inputBox input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #FFF;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #FFF;
+    outline: none;
+    background: transparent;
+}
+
+.box-register .inputBoxCheckbox input {
+    margin-bottom: 45px;
+    margin-right: 7px;
+    border: none;
+    border-bottom: 1px solid #FFF;
+    outline: none;
+    background: transparent;
+    transition: .5s;
+    animation: LabelOnLoad 1s forwards 0s ease;
+}
+
+.box-register .inputBox label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #FFF;
+    pointer-events: none;
+    transition: .5s;
+    animation: LabelOnLoad 1s forwards 0s ease;
+}
+
+.box-register .inputBoxCheckbox label {
+    position: absolute;
+    font-size: 16px;
+    color: #FFF;
+    pointer-events: none;
+    transition: .5s;
+    animation: LabelOnLoad 1s forwards 0s ease;
+}
+
+@keyframes LabelOnLoad {
+    0% {
+        transform: rotate(0) translateY(-19px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotate(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+.box-register .inputBox input:focus~label,
+.box-register .inputBox input:valid~label {
+    top: -19px;
+    left: 0;
+    color: #03A9F4;
+    font-size: 12px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.box-register input[type='submit'] {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #FFF;
+    background: rgba(3, 169, 244, 0.7);
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.box-register input[type='submit']:hover {
+    background-color: #6B96C2;
+}
+
+@media(max-width: 720px) {
+    .box-register {
+        width: 80%;
+    }
+}
