@@ -5,6 +5,7 @@ import DashboardStudyService from '../../../services/dashboardStudy.service'
 import BarChartGraphic from "../../charts/BarChartGraphic";
 import BarListGraphic from "../../charts/BarListGraphic";
 import TableDashGeneralStudy from "../../tables/TableDashGeneralStudy";
+import Loader from "../../Loader";
 
 const formatTime = (milliseconds) => {
   const totalSeconds = Math.floor(milliseconds / 1000);
@@ -103,7 +104,7 @@ const DashboardGeneralStudy = (props) => {
   }, []);
 
   if (loading1 || loading2 || loading3 || loading4) {
-    return <div>Cargando...</div>
+    return <Loader />
   }
 
   return (

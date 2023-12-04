@@ -4,6 +4,7 @@ import MetricCardList from "../../charts/MetricCardList";
 import PieChart from "../../charts/PieChart";
 import BarChartGraphic from "../../charts/BarChartGraphic";
 import { Grid, Col } from "@tremor/react";
+import Loader from "../../Loader";
 
 const valueFormatter = (number) => `${new Intl.NumberFormat("us").format(number).toString()}`;
 
@@ -74,7 +75,7 @@ const DashboardDemogrIteration = (props) => {
    }, []);
 
    if (loading1 || loading2 || loading3) {
-      return <div>Cargando...</div>
+      return <Loader />
    }
 
    return (

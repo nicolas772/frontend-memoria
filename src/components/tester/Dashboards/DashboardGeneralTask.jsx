@@ -3,6 +3,7 @@ import MetricCard from "../../charts/MetricCard";
 import { Grid, Col } from "@tremor/react";
 import BarChartGraphic from "../../charts/BarChartGraphic";
 import DashboardTaskService from "../../../services/dashboardTask.service";
+import Loader from "../../Loader";
 
 const valueFormatter = (number) => {
   const percentage = new Intl.NumberFormat("us", { style: 'percent', minimumFractionDigits: 1 }).format(number);
@@ -63,11 +64,7 @@ export default function DashboardGeneralTask(props) {
 
 
   if (loading1 || loading2) {
-    return (
-      <div>
-        Cargando...
-      </div>
-    )
+    return <Loader />
   }
 
   return (

@@ -4,6 +4,7 @@ import { Grid, Col } from "@tremor/react";
 import MetricCard from "../../charts/MetricCard";
 import BoxPlotChart from "../../charts/BoxPlotChart";
 import BarChartGraphic from "../../charts/BarChartGraphic";
+import Loader from "../../Loader";
 
 const valueFormatter = (number) => `${new Intl.NumberFormat("us").format(number).toString()}`;
 
@@ -74,7 +75,7 @@ const DashboardUsabilidadStudy = (props) => {
    }, []);
 
    if (loading1 || loading2 || loading3) {
-      return <div>Cargando...</div>
+      return <Loader />
    }
 
    return (

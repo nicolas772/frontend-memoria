@@ -3,6 +3,7 @@ import IterationService from "../../services/iteration.service";
 import UserService from "../../services/user.service";
 import InfoModal from "../user/InfoModal"
 import DatePicker from "react-datepicker"
+import Loader from "../Loader";
 import "react-datepicker/dist/react-datepicker.css";
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import { registerLocale } from "react-datepicker";
@@ -120,7 +121,7 @@ const FormIteration = () => {
   }
   
   if (loading) {
-    return <div>Cargando...</div>
+    return <Loader />
   }
   return (
     <>

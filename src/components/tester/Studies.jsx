@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import TableStudies from "./TableStudies"
 import ModalFormStudy from "./ModalFormStudy";
 import UserService from "../../services/user.service";
+import Loader from "../Loader";
 
 const Studies = ({ user }) => {
   const [showCreateModal, setShowCreateModal] = useState(false);
@@ -34,7 +35,7 @@ const Studies = ({ user }) => {
 
   
   if (loading) {
-    return <div>Cargando...</div>
+    return <Loader />
   }
 
   return (

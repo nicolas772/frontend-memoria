@@ -6,6 +6,7 @@ import SimpleCarousel from "../../charts/Carousel";
 import { Grid, Col } from "@tremor/react";
 import BarChartWithNegatives from "../../charts/BarChartWithNegatives";
 import WordCloudChart from "../../charts/WordCloudChart";
+import Loader from "../../Loader";
 
 
 const valueFormatter = (number) => `${number}`;
@@ -119,7 +120,7 @@ export default function DashboardSentimentIteration(props) {
   }, []);
 
   if (loading1 || loading2 || loading3 || loading4 || loading5) {
-    return <div>Cargando...</div>
+    return <Loader />
   }
 
   return (

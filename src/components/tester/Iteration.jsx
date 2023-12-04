@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ModalFormTask from './ModalFormTask';
 import UserService from "../../services/user.service";
@@ -21,6 +21,7 @@ import DashboardUsabilidadIteration from './Dashboards/DashboardUsabilidadIterat
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import InfoModal from '../user/InfoModal'
+import Loader from '../Loader';
 
 function a11yProps(index) {
   return {
@@ -217,7 +218,7 @@ const Iteration = () => {
   }, [reloadTask]);
 
   if (loading) {
-    return <div>Cargando...</div>
+    return <Loader />
   }
 
   return (

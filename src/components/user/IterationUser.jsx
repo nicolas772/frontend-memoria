@@ -4,6 +4,7 @@ import UserService from "../../services/user.service";
 import AuthService from "../../services/auth.service";
 import InfoModal from './InfoModal';
 import RedirectModal from "./RedirectModal";
+import Loader from "../Loader";
 
 const IterationUser = (props) => {
   //const { iditeration } = useParams();
@@ -88,7 +89,7 @@ const IterationUser = (props) => {
   }, []);
 
   if (loading) {
-    return <div>Cargando...</div>
+    return <Loader />
   }
 
   return (

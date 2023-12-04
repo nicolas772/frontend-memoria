@@ -62,11 +62,21 @@ function FormSentimentAnalisis() {
       setBodyModal('Selecciona una opción de sentimiento');
       handleShowInfoModal();
     } else {
+      toast.info('Iteración Finalizada. Por favor, espera.', {
+        position: "top-center",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       const user = AuthService.getCurrentUser();
       UserService.postOpenAnswer(iditeration, user.id, opinion, selectedSentiment).then(
         (response) => {
           // Redireccionar a inicio después de 3 segundos
-          toast.info('Iteración Finalizada!\nA continuación, serás redirigido al Inicio.', {
+          toast.info('A continuación, serás redirigido al Inicio.', {
             position: "top-center",
             autoClose: 4000,
             hideProgressBar: false,

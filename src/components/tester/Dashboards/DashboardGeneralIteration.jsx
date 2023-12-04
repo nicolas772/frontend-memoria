@@ -6,6 +6,7 @@ import DashboardIterationService from '../../../services/dashboardIteration.serv
 import PieChart from "../../charts/PieChart";
 import BarChartGraphic from "../../charts/BarChartGraphic";
 import { loadingButtonClasses } from "@mui/lab";
+import Loader from "../../Loader";
 
 const valueFormatter = (number) => `${new Intl.NumberFormat("us").format(number).toString()}`;
 
@@ -99,7 +100,7 @@ export default function DashboardGeneralIteration(props) {
   
 
   if (loading1 || loading2 || loading3 || loading4) {
-    return <div>Cargando...</div>
+    return <Loader />
   }
   return (
     <div>

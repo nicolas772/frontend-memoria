@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AuthService from "../services/auth.service"
 import { useNavigate } from 'react-router-dom';
+import Loader from './Loader';
 
 const Login2 = () => {
   const [username, setUsername] = useState("");
@@ -46,6 +47,10 @@ const Login2 = () => {
       }
     );
   };
+
+  if (loading) {
+    return <Loader />
+  }
 
   return (
     <div className='gradient-background'>

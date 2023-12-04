@@ -11,6 +11,7 @@ import { Button } from 'react-bootstrap';
 import CustomTabPanel from "./CustomTabPanel";
 import DashboardGeneralTask from "./Dashboards/DashboardGeneralTask"
 import InfoModal from '../user/InfoModal'
+import Loader from '../Loader';
 
 function a11yProps(index) {
   return {
@@ -102,7 +103,7 @@ const Task = () => {
   }, [reloadTask]);
 
   if (loading) {
-    return <div>Cargando...</div>
+    return <Loader />
   }
 
   return (

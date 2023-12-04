@@ -4,6 +4,8 @@ import UserService from '../../services/user.service';
 import AuthService from '../../services/auth.service';
 import { FaHome } from 'react-icons/fa'; // Importa el ícono de Home de Font Awesome
 import InfoModal from './InfoModal';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const likertScale = [
   "Totalmente en desacuerdo",
@@ -102,6 +104,16 @@ const FormCSUQ = () => {
       setBodyModal('Selecciona una opción de respuesta antes de continuar')
       handleShowInfoModal()
     } else {
+      toast.info('Cuestionario CSUQ Finalizado', {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       let respuestasInt = respuestas.map(str => parseInt(str));
       respuestasInt[actualQuestion]=parseInt(selectedValue)
       const user = AuthService.getCurrentUser();
@@ -171,6 +183,18 @@ const FormCSUQ = () => {
         handleClose={handleCloseInfoModal}
         title={titleModal}
         body={bodyModal}
+      />
+      <ToastContainer
+        position="top-right"
+        autoClose={1000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
       />
     </>
 

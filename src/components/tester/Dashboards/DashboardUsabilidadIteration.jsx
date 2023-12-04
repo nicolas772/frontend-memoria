@@ -4,6 +4,7 @@ import { Grid, Col } from "@tremor/react";
 import MetricCard from "../../charts/MetricCard";
 import TableDashUsabilityIteration from "../../tables/TableDashUsabilityIteration";
 import BoxPlotChart from "../../charts/BoxPlotChart";
+import Loader from "../../Loader";
 
 const DashboardUsabilidadIteration = (props) => {
    const { idIteration } = props
@@ -72,7 +73,7 @@ const DashboardUsabilidadIteration = (props) => {
    }, []);
 
    if (loading1 || loading2 || loading3) {
-      return <div>Cargando...</div>
+      return <Loader />
    }
 
    return (

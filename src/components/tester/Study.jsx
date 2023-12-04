@@ -16,6 +16,7 @@ import DashboardSentimentStudy from "./Dashboards/DashboardSentimentStudy"
 import DashboardDemogrStudy from "./Dashboards/DashboardDemogrStudy";
 import DashboardUsabilidadStudy from "./Dashboards/DashboardUsabilidadStudy";
 import InfoModal from '../user/InfoModal'
+import Loader from "../Loader";
 
 const Study = () => {
   const { idstudy } = useParams();
@@ -131,7 +132,7 @@ const Study = () => {
   }, [reloadStudy]);
 
   if (loading || loading2) {
-    return <div>Cargando...</div>
+    return <Loader />
   }
 
   return (

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import UserService from "../../services/user.service";
+import Loader from "../Loader";
 
 const BoardTester = () => {
   const [content, setContent] = useState("");
@@ -25,7 +26,7 @@ const BoardTester = () => {
   }, []);
   
   if (loading) {
-    return <div>Cargando...</div>
+    return <Loader />
   }
   return (
     <>

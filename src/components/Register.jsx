@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthService from "../services/auth.service";
 import { isEmail } from "validator";
+import Loader from './Loader';
 
 const validEmail = (value) => {
   if (!isEmail(value)) {
@@ -54,6 +55,7 @@ const Register = () => {
   const [year, setYear] = useState("")
   const [dateError, setDateError] = useState("")
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
   const onChangeDay = (e) => {
@@ -161,12 +163,14 @@ const Register = () => {
     e.preventDefault();
     setMessage("");
     setSuccessful(false);
+    setLoading(true)
     const birthday = new Date(year, month - 1, day)
     if(!usernameError && !passwordError && !emailError && !dateError){
       AuthService.register(username, email, password, isTester, sex, birthday).then(
         (response) => {
           setMessage(response.data.message);
           setSuccessful(true);
+          setLoading(false)
         },
         (error) => {
           const resMessage =
@@ -178,6 +182,7 @@ const Register = () => {
   
           setMessage(resMessage);
           setSuccessful(false);
+          setLoading(false)
         }
       );
     }
@@ -187,7 +192,8 @@ const Register = () => {
     <div className='gradient-background-register'>
       <div className="box-register">
         <h2>Feel<span style={{ color: 'hsl(218, 81%, 75%)' }}>UX</span></h2>
-        {!successful && (
+        {loading ? (<Loader />) : 
+        (!successful && (
           <>
             <form action="" onSubmit={handleRegister}>
               <div className="inputBox">
@@ -273,6 +279,7 @@ const Register = () => {
               <p>¿Ya tienes una cuenta? <a href="/login"> Iniciar Sesión</a></p>
             </div>
           </>
+        )
         )}
         {message && (
           <>

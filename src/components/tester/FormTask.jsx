@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import TaskService from "../../services/task.service";
 import UserService from "../../services/user.service";
 import InfoModal from "../user/InfoModal"
+import Loader from "../Loader";
 
 const FormTask = () => {
   const [titulo, setTitulo] = useState("");
@@ -153,7 +154,7 @@ const FormTask = () => {
   }
 
   if (loading) {
-    return <div>Cargando...</div>
+    return <Loader />
   }
   return (
     <>

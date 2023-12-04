@@ -6,6 +6,7 @@ import AuthService from "../../services/auth.service";
 import { FaHome } from 'react-icons/fa'; // Importa el ícono de Home de Font Awesome
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Loader from "../Loader";
 
 const TaskUser = () => {
   const { iditeration, idtask } = useParams();
@@ -25,7 +26,7 @@ const TaskUser = () => {
     setTiempoInicio(new Date()); // Guardar el tiempo de inicio
     toast.info('Tarea Iniciada.', {
       position: "top-right",
-      autoClose: 2000,
+      autoClose: 1000,
       hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
@@ -44,7 +45,7 @@ const TaskUser = () => {
       setMostrarBotones(false);
       toast.info('Tarea Finalizada.', {
         position: "top-right",
-        autoClose: 2000,
+        autoClose: 1000,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
@@ -56,6 +57,17 @@ const TaskUser = () => {
   }
 
   const handleTareaCompletada = (complete) => {
+    const stringTarea = complete ? "Tarea Completada" : "Tarea No Completada"
+    toast.info(stringTarea, {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
     const user = AuthService.getCurrentUser();
     TaskService.createTaskInfo(user.id, iditeration, actualTask, complete, duration).then(
       (response) => {
@@ -128,7 +140,7 @@ const TaskUser = () => {
   }, []);
   
   if (loading) {
-    return <div>Cargando...</div>
+    return <Loader />
   }
   return (
     <div className="gradient-background-tasks">
@@ -169,7 +181,7 @@ const TaskUser = () => {
       </div>
       <ToastContainer
         position="top-right"
-        autoClose={2000}
+        autoClose={1000}
         hideProgressBar
         newestOnTop={false}
         closeOnClick
