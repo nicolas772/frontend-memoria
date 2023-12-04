@@ -27,10 +27,19 @@ const ActivateIterationModal = ({ show, handleClose, handleActivate, element, nt
         <Modal.Title style={{ color: '#344b60', fontFamily: "Poppins, sans-serif", fontSize: '24px' }}>
           Confirmación</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-          <p style={{ color: '#344b60', fontFamily: "Poppins, sans-serif", fontSize: '16px' }}>
-            ¿Estás seguro que deseas activar <strong>{element}</strong>?</p>
-        </Modal.Body>
+      <Modal.Body style={{ color: '#344b60', fontFamily: "Poppins, sans-serif", fontSize: '16px' }}>
+        <p >¿Estás seguro que deseas activar <strong>{element}</strong>?</p>
+        <div style={{ marginTop: '1rem' }}>
+          <p>Si activas la iteración no podrás:</p>
+          <ul style={{ listStyleType: 'disc', padding: '1rem', paddingBottom: '0rem' }}>
+            <li>Eliminar la Iteración.</li>
+            <li>Crear nuevas Tareas.</li>
+            <li>Editar el título o descripción de las tareas.</li>
+            <li>Eliminar tareas.</li>
+          </ul>
+          <p>Podrás eliminar la Iteración cuando esté Finalizada.</p>
+        </div>
+      </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>
           Cancelar

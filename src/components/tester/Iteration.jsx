@@ -131,6 +131,16 @@ const Iteration = () => {
         setShowActivateModal(false);
         //window.location.reload()
         setReloadIteration(!reloadIteration)
+        toast.info('Iteración Activada', {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       },
       (error) => {
         console.log(error)
@@ -145,6 +155,16 @@ const Iteration = () => {
         setShowFinalizarModal(false);
         //window.location.reload()
         setReloadIteration(!reloadIteration)
+        toast.info('Iteración Finalizada', {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       },
       (error) => {
         console.log(error)
@@ -326,18 +346,6 @@ const Iteration = () => {
         handleClose={handleCloseFinalizarModal}
         handleFinalizar={handleFinalizar}
         element={title}
-      />
-      <ToastContainer
-        position="top-center"
-        autoClose={1000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
       />
       <ToastContainer
         position="top-right"
