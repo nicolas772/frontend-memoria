@@ -38,7 +38,7 @@ const BarChartWithNegatives = (props) => {
 			},
 			yaxis: {
 				title: {
-					text: 'Score',
+					text: 'Score Promedio',
 				},
 			},
 			xaxis: {

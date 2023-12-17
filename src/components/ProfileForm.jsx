@@ -47,7 +47,7 @@ function ProfileForm() {
 	const [usernameError, setUsernameError] = useState("")
 	const [email, setEmail] = useState(currentUser.email);
 	const [emailError, setEmailError] = useState("")
-	const [sex, setSex] = useState(currentUser.sex)
+	const [level, setLevel] = useState(currentUser.level)
 	const [day, setDay] = useState(birthday.getDate())
 	const [month, setMonth] = useState(birthday.getMonth() + 1)
 	const [year, setYear] = useState(birthday.getFullYear())
@@ -107,9 +107,9 @@ function ProfileForm() {
 		}
 	}
 
-	const onChangeSex = (e) => {
-		const Sex = e.target.value
-		setSex(Sex)
+	const onChangeLevel = (e) => {
+		const Level = e.target.value
+		setLevel(Level)
 	}
 
 	const onChangeDay = (e) => {
@@ -148,7 +148,7 @@ function ProfileForm() {
 		setUsernameError("")
 		setEmail(currentUser.email)
 		setEmailError("")
-		setSex(currentUser.sex)
+		setLevel(currentUser.level)
 		setYear(birthday.getFullYear())
 		setMonth(birthday.getMonth() + 1)
 		setDay(birthday.getDate())
@@ -160,14 +160,14 @@ function ProfileForm() {
 		e.preventDefault();
 		const birthdayToSend = new Date(year, month - 1, day)
 		if (!usernameError && !emailError && !dateError) {
-			UserService.updateProfile(currentUser.id, username, email, sex, birthdayToSend).then(
+			UserService.updateProfile(currentUser.id, username, email, level, birthdayToSend).then(
 				(response) => {
 					setIsEditing(false)
 					setTitleModal("Información")
 					setBodyModal(response.data.message)
 					currentUser.username = username
 					currentUser.email = email
-					currentUser.sex = sex
+					currentUser.level = level
 					currentUser.birthday = birthdayToSend
 					localStorage.setItem("user", JSON.stringify(currentUser));
 					handleShowInfoModal()
@@ -229,14 +229,14 @@ function ProfileForm() {
 					</div>
 				)}
 				<div className="inputBox">
-					<select className="form-control" style={{ width: "60%", textAlign: "center" }} value={sex} onChange={onChangeSex} disabled={!isEditing} required>
-						<option value="Femenino">Femenino</option>
-						<option value="Masculino">Masculino</option>
-						<option value="No Informado">Prefiero no informar</option>
+					<select className="form-control" style={{ width: "60%", textAlign: "center" }} value={level} onChange={onChangeLevel} disabled={!isEditing} required>
+						<option value="Básico">Básico</option>
+						<option value="Medio">Medio</option>
+						<option value="Avanzado">Avanzado</option>
 					</select>
 				</div>
 				<div className="labelBox">
-					<label>Sexo</label>
+					<label>Conocimiento Tecnológico</label>
 				</div>
 				<div className="inputBox">
 					<select className="form-control" style={{ width: "20%", textAlign: "center", margin: "2px" }} onChange={onChangeDay} disabled={!isEditing} value={day} required>

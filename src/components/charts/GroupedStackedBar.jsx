@@ -58,7 +58,7 @@ const GroupedStackedBar = (props) => {
    return (
       <Card>
          <Title>
-            Usuarios por Género, Rango Etario e Iteración
+            Usuarios por Conocimiento tecnológico, Rango Etario e Iteración
          </Title>
          <ReactApexChart options={options} series={series} type="bar" height={350} />
       </Card>

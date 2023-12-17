@@ -69,12 +69,12 @@ const postOpenAnswerPrueba = (opinion) => {
   });
 }
 
-const updateProfile = (idUser, username, email, sex, birthdayToSend) => {
+const updateProfile = (idUser, username, email, level, birthdayToSend) => {
   return axios.put(API_URL + "update-profile", {
     idUser: idUser,
     username: username,
     email: email,
-    sex: sex,
+    level: level,
     birthday: birthdayToSend
   })
 }

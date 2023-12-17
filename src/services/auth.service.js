@@ -4,7 +4,7 @@ import link from "./host-link";
 //const API_URL = "http://localhost:8080/api/auth/";
 const API_URL = link + "api/auth/";
 
-const register = (username, email, password, isTester, sex, birthday) => {
+const register = (username, email, password, isTester, level, birthday) => {
   const roles = isTester ? ["tester"] : ["user"]
 
   return axios.post(API_URL + "signup", {
@@ -12,7 +12,7 @@ const register = (username, email, password, isTester, sex, birthday) => {
     email,
     password,
     roles,
-    sex,
+    level,
     birthday
   });
 };

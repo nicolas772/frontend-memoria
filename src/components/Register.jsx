@@ -49,7 +49,7 @@ const Register = () => {
   const [passwordError, setPasswordError] = useState("")
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState("");
-  const [sex, setSex] = useState("")
+  const [level, setLevel] = useState("")
   const [day, setDay] = useState("")
   const [month, setMonth] = useState("")
   const [year, setYear] = useState("")
@@ -85,9 +85,9 @@ const Register = () => {
     }
   }
 
-  const onChangeSex = (e) => {
-    const Sex = e.target.value
-    setSex(Sex)
+  const onChangeLevel = (e) => {
+    const Level = e.target.value
+    setLevel(Level)
   }
 
   const onChangeUsername = (e) => {
@@ -165,8 +165,8 @@ const Register = () => {
     setSuccessful(false);
     setLoading(true)
     const birthday = new Date(year, month - 1, day)
-    if(!usernameError && !passwordError && !emailError && !dateError){
-      AuthService.register(username, email, password, isTester, sex, birthday).then(
+    if (!usernameError && !passwordError && !emailError && !dateError) {
+      AuthService.register(username, email, password, isTester, level, birthday).then(
         (response) => {
           setMessage(response.data.message);
           setSuccessful(true);
@@ -179,7 +179,7 @@ const Register = () => {
               error.response.data.message) ||
             error.message ||
             error.toString();
-  
+
           setMessage(resMessage);
           setSuccessful(false);
           setLoading(false)
@@ -192,95 +192,103 @@ const Register = () => {
     <div className='gradient-background-register'>
       <div className="box-register">
         <h2>Feel<span style={{ color: 'hsl(218, 81%, 75%)' }}>UX</span></h2>
-        {loading ? (<Loader />) : 
-        (!successful && (
-          <>
-            <form action="" onSubmit={handleRegister}>
-              <div className="inputBox">
-                <input type="text" onChange={onChangeUsername} onBlur={onBlurUsername} required />
-                <label>Usuario</label>
-              </div>
-              {usernameError && (
-                <div className="alert alert-danger" role="alert">
-                  {usernameError}
+        {loading ? (<Loader />) :
+          (!successful && (
+            <>
+              <form action="" onSubmit={handleRegister}>
+                <div className="inputBox">
+                  <input type="text" onChange={onChangeUsername} onBlur={onBlurUsername} required />
+                  <label>Usuario</label>
                 </div>
-              )}
-              <div className="inputBox">
-                <input type="text" onChange={onChangeEmail} onBlur={onBlurEmail} required />
-                <label>Email</label>
-              </div>
-              {emailError && (
-                <div className="alert alert-danger" role="alert">
-                  {emailError}
+                {usernameError && (
+                  <div className="alert alert-danger" role="alert">
+                    {usernameError}
+                  </div>
+                )}
+                <div className="inputBox">
+                  <input type="text" onChange={onChangeEmail} onBlur={onBlurEmail} required />
+                  <label>Email</label>
                 </div>
-              )}
-              <div className="inputBox">
-                <select onChange={onChangeSex} required>
-                  <option value="">Selecciona una opción</option>
-                  <option value="Femenino">Femenino</option>
-                  <option value="Masculino">Masculino</option>
-                  <option value="No Informado">Prefiero no informar</option>
-                </select>
-                <label>Sexo</label>
-              </div>
-              <div className="inputBox">
-                <select className="custom-select-day" onChange={onChangeDay} required>
-                  <option value="">Día</option>
-                  {Array.from({ length: 31 }, (_, index) => (
-                    <option key={index + 1} value={index + 1}>
-                      {index + 1}
-                    </option>
-                  ))}
-                </select>
-                <select className="custom-select-month" onChange={onChangeMonth} required>
-                  <option value="">Mes</option>
-                  {[
-                    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-                    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
-                  ].map((month, index) => (
-                    <option key={index} value={index + 1}>
-                      {month}
-                    </option>
-                  ))}
-                </select>
-                <select className="custom-select-year" onChange={onChangeYear} required>
-                  <option value="">Año</option>
-                  {Array.from({ length: 124 }, (_, index) => (
-                    <option key={currentYear - index} value={currentYear - index}>
-                      {currentYear - index}
-                    </option>
-                  ))}
-                </select>
-                <label>Fecha de Nacimiento</label>
-              </div>
-              {dateError && (
-                <div className="alert alert-danger" role="alert">
-                  {dateError}
+                {emailError && (
+                  <div className="alert alert-danger" role="alert">
+                    {emailError}
+                  </div>
+                )}
+
+
+
+
+
+                <div className="inputBox">
+                  <select className="custom-select-day" onChange={onChangeDay} required>
+                    <option value="">Día</option>
+                    {Array.from({ length: 31 }, (_, index) => (
+                      <option key={index + 1} value={index + 1}>
+                        {index + 1}
+                      </option>
+                    ))}
+                  </select>
+                  <select className="custom-select-month" onChange={onChangeMonth} required>
+                    <option value="">Mes</option>
+                    {[
+                      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                      "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+                    ].map((month, index) => (
+                      <option key={index} value={index + 1}>
+                        {month}
+                      </option>
+                    ))}
+                  </select>
+                  <select className="custom-select-year" onChange={onChangeYear} required>
+                    <option value="">Año</option>
+                    {Array.from({ length: 124 }, (_, index) => (
+                      <option key={currentYear - index} value={currentYear - index}>
+                        {currentYear - index}
+                      </option>
+                    ))}
+                  </select>
+                  <label>Fecha de Nacimiento</label>
                 </div>
-              )}
-              <div className="inputBox">
-                <input type="password" onChange={onChangePassword} onBlur={onBlurPassword} required />
-                <label>Contraseña</label>
-              </div>
-              {passwordError && (
-                <div className="alert alert-danger" role="alert">
-                  {passwordError}
+                {dateError && (
+                  <div className="alert alert-danger" role="alert">
+                    {dateError}
+                  </div>
+                )}
+
+                <div className="inputBox">
+                  <select onChange={onChangeLevel} required >
+                    <option value="">Selecciona tu nivel</option>
+                    <option value="Básico">Básico</option>
+                    <option value="Medio">Medio</option>
+                    <option value="Avanzado">Avanzado</option>
+                  </select>
+                  <label>Conocimiento tecnológico</label>
                 </div>
-              )}
-              <div className="inputBoxCheckbox">
-                <input type="checkbox" onChange={onChangeIsTester} />
-                <label>Quiero registrarme como Tester</label>
+
+
+                <div className="inputBox">
+                  <input type="password" onChange={onChangePassword} onBlur={onBlurPassword} required />
+                  <label>Contraseña</label>
+                </div>
+                {passwordError && (
+                  <div className="alert alert-danger" role="alert">
+                    {passwordError}
+                  </div>
+                )}
+                <div className="inputBoxCheckbox">
+                  <input type="checkbox" onChange={onChangeIsTester} />
+                  <label>Quiero registrarme como Tester</label>
+                </div>
+                <div className="button-container">
+                  <input type="submit" value="Registrarse" />
+                </div>
+              </form>
+              <div className='button-container'>
+                <p>¿Ya tienes una cuenta? <a href="/login"> Iniciar Sesión</a></p>
               </div>
-              <div className="button-container">
-                <input type="submit" value="Registrarse" />
-              </div>
-            </form>
-            <div className='button-container'>
-              <p>¿Ya tienes una cuenta? <a href="/login"> Iniciar Sesión</a></p>
-            </div>
-          </>
-        )
-        )}
+            </>
+          )
+          )}
         {message && (
           <>
             <div className={successful ? "inputBoxConfirmation" : "alert alert-danger"}>

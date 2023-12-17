@@ -94,7 +94,7 @@ export default function DashboardGeneralTask(props) {
           <BarChartGraphic
             content={barChartContent.chartData1}
             valueFormatter={valueFormatter}
-            title="Porcentaje Éxito por rango etario y sexo"
+            title="Porcentaje Éxito por rango etario y conocimiento tecnológico"
             categories={barChartContent.categories}
             color={barChartContent.colors}
             stack={false} />
@@ -103,7 +103,7 @@ export default function DashboardGeneralTask(props) {
           <BarChartGraphic
             content={barChartContent.chartData2}
             valueFormatter={valueFormatter2}
-            title="Tiempo Promedio por rango etario y sexo"
+            title="Tiempo Promedio por rango etario y conocimiento tecnológico"
             categories={barChartContent.categories}
             color={barChartContent.colors}
             stack={false} />

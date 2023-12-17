@@ -1,6 +1,6 @@
 import { Card, Metric, Text, List, ListItem, Flex, Bold, Grid } from "@tremor/react";
 import { CheckCircleIcon, PlusCircleIcon, CheckIcon, RefreshIcon, LightBulbIcon, StarIcon, BookOpenIcon } from '@heroicons/react/solid';
-import { ArrowRight, GenderMale, GenderAmbiguous, GenderFemale } from 'react-bootstrap-icons';
+import { Circle, CircleFill, CircleHalf } from 'react-bootstrap-icons';
 export default function MetricCardList(props) {
   const { content, color } = props;
 
@@ -13,9 +13,9 @@ export default function MetricCardList(props) {
     facil: LightBulbIcon,
     medio: LightBulbIcon,
     dificil: LightBulbIcon,
-    hombre: GenderMale,
-    mujer: GenderFemale,
-    noIdentificado: GenderAmbiguous,
+    hombre: Circle,
+    mujer: CircleHalf,
+    noIdentificado: CircleFill,
     score: StarIcon,
     palabras: BookOpenIcon,
     hits: BookOpenIcon,
@@ -28,9 +28,9 @@ export default function MetricCardList(props) {
     facil: "green",
     medio: "#FFD700",
     dificil: "red",
-    hombre: "green",
-    mujer: "purple",
-    noIdentificado: "grey",
+    hombre: "#3399FF",
+    mujer: "#3399FF",
+    noIdentificado: "#3399FF",
     score: "#ffc107",
     palabras: "#3399FF",
     hits: "orange",

@@ -133,7 +133,7 @@ export default function DashboardSentimentIteration(props) {
       <div style={{margin:'2%'}}></div>
       <Grid numItemsSm={1} numItemsLg={2} className="gap-6">
         <BarChartWithNegatives 
-        title="Score por Usuario"
+        title="Score promedio por Conocimiento tecnológico"
         data={barChartContent.chartData}
         categories={barChartContent.categories}/>
         <WordCloudChart content={cloudContent.data} title="Tags Opiniones"/>
