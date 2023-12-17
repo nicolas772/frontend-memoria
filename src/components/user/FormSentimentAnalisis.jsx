@@ -27,6 +27,7 @@ function FormSentimentAnalisis() {
   const [lastQuestion, setLastQuestion] = useState(false)
   const [titleModal, setTitleModal] = useState('')
   const [bodyModal, setBodyModal] = useState('')
+  const [disabledButton, setDisabledButton] = useState(false)
   const navigate = useNavigate()
 
   const handleShowInfoModal = () => setShowInfoModal(true)
@@ -57,10 +58,12 @@ function FormSentimentAnalisis() {
   }
 
   const handleSubmit = () => {
+    setDisabledButton(true)
     if (!selectedSentiment) {
       setTitleModal('Información');
       setBodyModal('Selecciona una opción de sentimiento');
       handleShowInfoModal();
+      setDisabledButton(false)
     } else {
       toast.info('Iteración Finalizada. Por favor, espera.', {
         position: "top-center",
@@ -145,10 +148,10 @@ function FormSentimentAnalisis() {
                 </div>
               </div>
               <div className="buttons-div-sentiment">
-                <button type="button" onClick={handlePrevQuestion}>
+                <button type="button" onClick={handlePrevQuestion} disabled={disabledButton}>
                   Atras
                 </button>
-                <button type="button" onClick={handleSubmit}>
+                <button type="button" onClick={handleSubmit} disabled={disabledButton}>
                   Terminar Estudio
                 </button>
               </div>

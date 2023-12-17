@@ -48,6 +48,7 @@ const FormCSUQ = () => {
   const [actualQuestion, setActualQuestion] = useState(0)
   const [firstQuestion, setFirstQuestion] = useState(true)
   const [lastQuestion, setLastQuestion] = useState(false)
+  const [disabledButton, setDisabledButton] = useState(false)
   const [respuestas, setRespuestas] = useState(Array(preguntas.length).fill(null));
   const [showInfoModal, setShowInfoModal] = useState(false)
   const [titleModal, setTitleModal] = useState('')
@@ -99,10 +100,12 @@ const FormCSUQ = () => {
   }
 
   const handleEnviarCuestionario = () => {
+    setDisabledButton(true)
     if (selectedValue === null) {
       setTitleModal('Información')
       setBodyModal('Selecciona una opción de respuesta antes de continuar')
       handleShowInfoModal()
+      setDisabledButton(false)
     } else {
       toast.info('Cuestionario CSUQ Finalizado', {
         position: "top-right",
@@ -120,9 +123,11 @@ const FormCSUQ = () => {
       UserService.postCSUQAnswers(iditeration, user.id, respuestasInt).then(
         (response) => {
           navigate(`/user/doQuestion/${iditeration}`)
+          setDisabledButton(false)
         },
         (error) => {
           console.log(error)
+          setDisabledButton(false)
         }
       )
     }
@@ -163,7 +168,7 @@ const FormCSUQ = () => {
               Anterior
             </button>
             {lastQuestion ? (
-              <button type="button" onClick={handleEnviarCuestionario}>
+              <button type="button" onClick={handleEnviarCuestionario} disabled={disabledButton}>
                 Enviar Respuestas
               </button>
             ) : (

@@ -12,7 +12,10 @@ const TaskUser = () => {
   const { iditeration, idtask } = useParams();
   const [actualTask, setActualTask] = useState(idtask)
   const [content, setContent] = useState(null);
-  const [loading, setLoading] = useState(true)
+  const [loading1, setLoading1] = useState(true)
+  const [loading2, setLoading2] = useState(true)
+  const [loading3, setLoading3] = useState(true)
+  const [disabledButton, setDisabledButton] = useState(false)
   const [tareaIniciada, setTareaIniciada] = useState(false);
   const [tiempoInicio, setTiempoInicio] = useState();
   const [duration, setDuration] = useState()
@@ -57,6 +60,7 @@ const TaskUser = () => {
   }
 
   const handleTareaCompletada = (complete) => {
+    setDisabledButton(true)
     const stringTarea = complete ? "Tarea Completada" : "Tarea No Completada"
     toast.info(stringTarea, {
       position: "top-right",
@@ -77,6 +81,7 @@ const TaskUser = () => {
           setTaskForCont(response.data.nextTaskForCont)
           setActualTask(response.data.nextTask)
           setMostrarBotones(true)
+          setDisabledButton(false)
         }
       },
       (error) => {
@@ -89,10 +94,11 @@ const TaskUser = () => {
     if (!actualTask) {
       return;
     }
+    setLoading1(true)
     UserService.getTask(actualTask).then(
       (response) => {
         setContent(response.data);
-        setLoading(false)
+        setLoading1(false)
       },
       (error) => {
         const _content =
@@ -103,15 +109,17 @@ const TaskUser = () => {
           error.toString();
 
         setContent(_content);
+        setLoading1(false)
       }
     );
   }, [actualTask]);
 
   useEffect(() => {
+    setLoading2(true)
     UserService.getIterationWithDataStudy(iditeration).then(
       (response) => {
         setTaskQty(response.data.iteration.task_qty)
-        setLoading(false)
+        setLoading2(false)
       },
       (error) => {
         const _content =
@@ -122,25 +130,36 @@ const TaskUser = () => {
           error.toString();
 
         setContent(_content);
+        setLoading2(false)
       }
     );
   }, []);
 
   useEffect(() => {
     const user = AuthService.getCurrentUser();
+    setLoading3(true)
     UserService.getNextTaskForStudy(iditeration, user.id).then(
       (response) => {
         setTaskForCont(response.data.lastTaskForCont)
-        setLoading(false)
+        setLoading3(false)
       },
       (error) => {
         console.log(error)
+        setLoading3(false)
       }
     )
   }, []);
-  
-  if (loading) {
-    return <Loader />
+
+  if (loading1 || loading2 || loading3) {
+    return (
+      <div className="gradient-background-tasks">
+        <a href="/homeUser" className="home-link">
+          <FaHome className="home-icon" />
+          <span className="home-text">Volver a Inicio</span>
+        </a>
+        <Loader />
+      </div>
+    )
   }
   return (
     <div className="gradient-background-tasks">
@@ -167,10 +186,10 @@ const TaskUser = () => {
           </div>
         ) : (
           <div className="buttons-div">
-            <button onClick={() => handleTareaCompletada(true)} type="button">
+            <button onClick={() => handleTareaCompletada(true)} type="button" disabled={disabledButton}>
               Tarea completada
             </button>
-            <button onClick={() => handleTareaCompletada(false)} type="button">
+            <button onClick={() => handleTareaCompletada(false)} type="button" disabled={disabledButton}>
               Tarea no completada
             </button>
           </div>
