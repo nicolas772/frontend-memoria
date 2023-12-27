@@ -1,9 +1,11 @@
 import React from "react";
+import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import "../charts/css/styleDashboardPrincipal.css"
 import { Grid } from "@tremor/react";
 import CardHome from "./CardHome";
-import { Button } from 'react-bootstrap';
+import { Form, Button, Nav } from 'react-bootstrap';
+import UserService from "../../services/user.service";
 
 const HomeTesterContent = [
   {
@@ -33,6 +35,21 @@ const HomeTester = () => {
   const handleButton = () => {
     navigate("/create-study")
   };
+  /*const [opinion, setOpinion] = useState("");
+  const handleChangeOpinion = (event) => {
+    setOpinion(event.target.value);
+  };
+  const handleSubmit = () => {
+    UserService.postOpenAnswerPrueba(opinion).then(
+      (response) => {
+        // Redireccionar a inicio después de 3 segundos
+        console.log(response.data)
+      },
+      (error) => {
+        console.log(error)
+      }
+    );
+  }*/
 
   return (
 
@@ -63,6 +80,23 @@ const HomeTester = () => {
             Crea tu Primer Estudio
           </Button>
         </div>
+        {/*<>
+          <Form.Group className="mb-3">
+            <Form.Control
+              as="textarea"
+              rows={3}
+              value={opinion}
+              onChange={handleChangeOpinion}
+              className="disable-resize" // Agrega la clase aquí
+              maxLength={240}
+            />
+          </Form.Group>
+          <div className="buttons-div-sentiment">
+            <button type="button" onClick={handleSubmit}>
+              Enviar
+            </button>
+          </div>
+            </>*/}
       </div>
     </div>
   )
