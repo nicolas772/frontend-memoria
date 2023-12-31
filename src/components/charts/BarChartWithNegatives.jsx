@@ -4,7 +4,7 @@ import { Card, Title } from '@tremor/react'
 
 const BarChartWithNegatives = (props) => {
 	const {data, categories, title} = props
-	const [state] = React.useState({
+	const state = {
 		series: [
 			{
 				data: data,
@@ -46,7 +46,7 @@ const BarChartWithNegatives = (props) => {
 				categories: categories,
 			},
 		},
-	});
+	}
 
 	return (
 		<Card>

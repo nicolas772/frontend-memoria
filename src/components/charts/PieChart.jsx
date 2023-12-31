@@ -4,7 +4,7 @@ import { Card, Title } from "@tremor/react";
 
 const PieChart = (props) => {
    const { title, color, content, legendPosition = 'bottom', widthChart = '100%' } = props
-   const [chartState] = useState({
+   const chartState = {
       series: content.series,
       options: {
          chart: {
@@ -29,7 +29,7 @@ const PieChart = (props) => {
             },
          ],
       },
-   });
+   }
 
    return (
       <Card
