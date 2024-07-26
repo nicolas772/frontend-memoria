@@ -48,6 +48,34 @@ const Login2 = () => {
     );
   };
 
+  const handleDemoTesterLogin = (e) => {
+    e.preventDefault();
+    setMessage("");
+    setLoading(true);
+    const demoCredential = 'demo-tester'
+
+    AuthService.login(demoCredential, demoCredential).then(
+      (response) => {
+        if (response.roles.includes("ROLE_USER")) {
+          navigate("/homeUser");
+        } else {
+          navigate("/homeTester");
+        }
+      },
+      (error) => {
+        const resMessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setLoading(false);
+        setMessage(resMessage);
+      }
+    );
+  }
+
   if (loading) {
     return <Loader />
   }
@@ -69,8 +97,15 @@ const Login2 = () => {
             <input type="submit" value="Iniciar Sesión" />
           </div>
         </form>
+        <div className='flex justify-center'>
+          <p className='mb-3 mt-4'>Para iniciar sesión Demo Tester, 
+            <button onClick={handleDemoTesterLogin}>
+              <a href="">&nbsp;pulsa aquí.</a>
+            </button>
+          </p>
+        </div>
         <div className='button-container'>
-          <p>¿No tienes una cuenta? <a href="/register">Regístrate aquí</a></p>
+          <p className='m-0'>¿No tienes una cuenta? <a href="/register">Regístrate aquí</a></p>
         </div>
         {message && (
           <div className="form-group">

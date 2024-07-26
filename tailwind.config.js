@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
+  darkMode: false, // Desactiva el modo oscuro por completo
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -45,7 +46,7 @@ module.exports = {
           },
         },
         // dark mode
-        "dark-tremor": {
+        /*"dark-tremor": {
           brand: {
             faint: "#0B1229", // custom
             muted: "#172554", // blue-950
@@ -73,7 +74,7 @@ module.exports = {
             strong: "#f9fafb", // gray-50
             inverted: "#000000", // black
           },
-        },
+        },*/
       },
       boxShadow: {
         // light
