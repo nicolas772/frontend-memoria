@@ -11,7 +11,7 @@ export default function SimpleCarousel(props) {
       <Title className='pb-2'>{title}</Title>
       <div className="h-64">
         <Carousel  leftControl rightControl>
-          {content.map((item, index) => (
+          {content.splice(0,6).map((item, index) => (
             <div key={index} className="flex h-full pl-2 pr-2 items-center text-center justify-center bg-gray-200 dark:bg-gray-200 text-gray-700">
             "{item}"
           </div>
