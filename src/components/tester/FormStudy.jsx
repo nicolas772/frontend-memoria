@@ -8,6 +8,7 @@ import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import { registerLocale } from "react-datepicker";
 import es from 'date-fns/locale/es';
 registerLocale('es', es)
+import { useDemoUser } from "../../hooks/useDemoUser";
 
 
 const FormStudy = () => {
@@ -22,6 +23,7 @@ const FormStudy = () => {
   const [titleModal, setTitleModal] = useState('')
   const [bodyModal, setBodyModal] = useState('')
   const [faltanInputs, setFaltanInputs] = useState(false)
+  const {isDemoUser} = useDemoUser()
 
   const handleShowInfoModal = () => setShowInfoModal(true)
   const handleCloseInfoModal = () => setShowInfoModal(false)
@@ -150,7 +152,7 @@ const FormStudy = () => {
               </div>
             )}
             <div className="buttons-div">
-              <button type="button" onClick={handleSubmit}>
+              <button type="button" onClick={handleSubmit} disabled={isDemoUser}>
                 Crear Estudio
               </button>
             </div>

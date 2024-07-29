@@ -3,6 +3,7 @@ import TaskService from "../../services/task.service";
 import UserService from "../../services/user.service";
 import InfoModal from "../user/InfoModal"
 import Loader from "../Loader";
+import { useDemoUser } from "../../hooks/useDemoUser";
 
 const FormTask = () => {
   const [titulo, setTitulo] = useState("");
@@ -22,6 +23,7 @@ const FormTask = () => {
   const [titleModal, setTitleModal] = useState('')
   const [bodyModal, setBodyModal] = useState('')
   const [loading, setLoading] = useState(true)
+  const {isDemoUser} = useDemoUser()
 
   const handleShowInfoModal = () => setShowInfoModal(true)
   const handleCloseInfoModal = () => setShowInfoModal(false)
@@ -310,7 +312,7 @@ const FormTask = () => {
                 <button type="button" onClick={handleBack}>
                   Volver
                 </button>
-                <button type="button" onClick={handleSubmit}>
+                <button type="button" onClick={handleSubmit} disabled={isDemoUser}>
                   Crear Tarea
                 </button>
               </div>

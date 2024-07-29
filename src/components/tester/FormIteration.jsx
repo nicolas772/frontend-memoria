@@ -8,6 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import { registerLocale } from "react-datepicker";
 import es from 'date-fns/locale/es';
+import { useDemoUser } from "../../hooks/useDemoUser";
 registerLocale('es', es)
 
 const FormIteration = () => {
@@ -24,6 +25,7 @@ const FormIteration = () => {
   const [bodyModal, setBodyModal] = useState('')
   const [faltaStudy, setFaltaStudy] = useState(false)
   const [loading, setLoading] = useState(true)
+  const {isDemoUser} = useDemoUser()
 
   const handleShowInfoModal = () => setShowInfoModal(true)
   const handleCloseInfoModal = () => setShowInfoModal(false)
@@ -227,7 +229,7 @@ const FormIteration = () => {
                 <button type="button" onClick={handleBack}>
                   Volver
                 </button>
-                <button type="button" onClick={handleSubmit}>
+                <button type="button" onClick={handleSubmit} disabled={isDemoUser}>
                   Crear Iteración
                 </button>
               </div>
