@@ -102,7 +102,7 @@ const Login2 = () => {
           </div>
         </form>
         <div className='flex justify-center'>
-          <p className='mb-3 mt-4'>Para iniciar sesión Demo Tester, 
+          <p className='mb-3 mt-4'>Para iniciar sesión demo, 
             <button onClick={handleDemoTesterLogin}>
               <a href="">&nbsp;pulsa aquí.</a>
             </button>
