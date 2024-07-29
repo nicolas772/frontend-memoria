@@ -4,6 +4,7 @@ import AuthService from "../services/auth.service";
 import { isEmail } from "validator";
 import InfoModal from "./user/InfoModal"
 import ModalChangePassword from "./ModalChangePassword";
+import { useDemoUser } from '../hooks/useDemoUser'
 
 const validEmail = (value) => {
 	if (!isEmail(value)) {
@@ -57,6 +58,7 @@ function ProfileForm() {
 	const [titleModal, setTitleModal] = useState('')
 	const [bodyModal, setBodyModal] = useState('')
 	const [showCreateModal, setShowCreateModal] = useState(false);
+	const {isDemoUser} = useDemoUser()
 
 	const handleShowInfoModal = () => setShowInfoModal(true)
 	const handleCloseInfoModal = () => setShowInfoModal(false)
@@ -283,10 +285,10 @@ function ProfileForm() {
 					</div>
 				) : (
 					<div className="buttons-div">
-						<button type="button" onClick={handleShowCreateModal}>
+						<button type="button" onClick={handleShowCreateModal} disabled={isDemoUser}>
 							Cambiar Contraseña
 						</button>
-						<button type="button" onClick={handleEdit}>
+						<button type="button" onClick={handleEdit} disabled={isDemoUser}>
 							Editar Datos
 						</button>
 					</div>

@@ -32,7 +32,6 @@ const HomeTesterContent = [
 const HomeTester = () => {
   const {isDemoUser} = useDemoUser()
   let navigate = useNavigate()
-  console.log(isDemoUser)
 
   const handleButton = () => {
     navigate("/create-study")
