@@ -29,10 +29,12 @@ import sidebarBgTester from '../assets/bg3.jpg'
 import sidebarBgUser from '../assets/bg5.jpg'
 import '../css/styles.scss'
 import LogoutModal from './LogoutModal';
+import { useDemoUser } from '../hooks/useDemoUser';
 
 const Sidebar = ({ collapsed, toggled, handleToggleSidebar, handleCollapsedChange, user }) => {
   const [showTesterBoard, setShowTesterBoard] = useState(false);
   const [showUserBoard, setShowUserBoard] = useState(false);
+  const {clearDemoUser} = useDemoUser()
   let navigate = useNavigate()
   let username = user.username
 
@@ -44,6 +46,7 @@ const Sidebar = ({ collapsed, toggled, handleToggleSidebar, handleCollapsedChang
   const logOut = () => {
     setShowLogoutModal(false);
     AuthService.logout();
+    clearDemoUser()
     navigate("/login")
   };
 

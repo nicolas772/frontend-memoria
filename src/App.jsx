@@ -15,16 +15,19 @@ import "./css/styleRegister.css"
 import "./css/styleProfile.css"
 import "./css/styleModalForm.css"
 import "./css/styleCreateForm.css"
+import { DemoUserProvider } from "./context/demoUser";
 
 function App() {
 
   return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/*" element={<ProtectedRoutes />} />
-      <Route path="/user/*" element={<ProtectedRoutesWithoutSidebar />} />
-    </Routes>
+    <DemoUserProvider>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/*" element={<ProtectedRoutes />} />
+        <Route path="/user/*" element={<ProtectedRoutesWithoutSidebar />} />
+      </Routes>
+    </DemoUserProvider>
   );
 }
 

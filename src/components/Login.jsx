@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import AuthService from "../services/auth.service"
 import { useNavigate } from 'react-router-dom';
 import Loader from './Loader';
+import { useDemoUser } from '../hooks/useDemoUser';
 
 const Login2 = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const {setDemoUser} = useDemoUser()
   const navigate = useNavigate()
 
   const onChangeUsername = (e) => {
@@ -28,6 +30,7 @@ const Login2 = () => {
 
     AuthService.login(username, password).then(
       (response) => {
+        setDemoUser(response)
         if (response.roles.includes("ROLE_USER")) {
           navigate("/homeUser");
         } else {
@@ -56,6 +59,7 @@ const Login2 = () => {
 
     AuthService.login(demoCredential, demoCredential).then(
       (response) => {
+        setDemoUser(response)
         if (response.roles.includes("ROLE_USER")) {
           navigate("/homeUser");
         } else {

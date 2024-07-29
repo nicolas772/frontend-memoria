@@ -6,6 +6,7 @@ import { Grid } from "@tremor/react";
 import CardHome from "./CardHome";
 import { Form, Button, Nav } from 'react-bootstrap';
 import UserService from "../../services/user.service";
+import { useDemoUser } from "../../hooks/useDemoUser";
 
 const HomeTesterContent = [
   {
@@ -29,8 +30,9 @@ const HomeTesterContent = [
 ]
 
 const HomeTester = () => {
-
+  const {isDemoUser} = useDemoUser()
   let navigate = useNavigate()
+  console.log(isDemoUser)
 
   const handleButton = () => {
     navigate("/create-study")
