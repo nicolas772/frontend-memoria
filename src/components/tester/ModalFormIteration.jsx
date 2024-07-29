@@ -7,6 +7,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
 import 'dayjs/locale/es';
+import { useDemoUser } from "../../hooks/useDemoUser";
 
 dayjs.locale('es'); // Configura dayjs para español
 
@@ -17,6 +18,7 @@ function ModalFormIteration(props) {
   const [endDate, setEndDate] = useState(dayjs());
   const [badEndDate, setBadEndDate] = useState(false)
   const [noGoal, setNoGoal] = useState(false)
+  const {isDemoUser} = useDemoUser()
 
   const onChangeObjetivo = (e) => {
     const objetivo = e.target.value;
@@ -131,7 +133,7 @@ function ModalFormIteration(props) {
                 alignItems: 'center',
                 marginTop: '5%'
               }}>
-              <Button variant="primary" type="submit" className="btn button-primary">
+              <Button variant="primary" type="submit" className="btn button-primary" disabled={isDemoUser}>
                 Crear Iteración
               </Button>
             </div>

@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import TaskService from "../../services/task.service";
+import { useDemoUser } from "../../hooks/useDemoUser";
 
 function TimeInput(props) {
   return (
@@ -31,6 +32,7 @@ function ModalEditTask(props) {
   const [minutes, setMinutes] = useState(content.minutes_optimal);
   const [seconds, setSeconds] = useState(content.seconds_optimal);
   const [faltaCampo, setFaltaCampo] = useState(false)
+  const {isDemoUser} = useDemoUser()
 
   const handleMinutesChange = (event) => {
     setMinutes(event.target.value);
@@ -149,7 +151,7 @@ function ModalEditTask(props) {
                 alignItems: 'center',
                 marginTop: '5%'
               }}>
-              <Button variant="primary" type="submit" className="btn button-primary">
+              <Button variant="primary" type="submit" className="btn button-primary" disabled={isDemoUser}>
                 Editar Tarea
               </Button>
             </div>

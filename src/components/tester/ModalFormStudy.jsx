@@ -7,6 +7,7 @@ import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import { registerLocale } from "react-datepicker";
 import es from 'date-fns/locale/es';
 registerLocale('es', es)
+import { useDemoUser } from "../../hooks/useDemoUser";
 
 function ModalFormStudy(props) {
   const { show, handleClose, userId } = props;
@@ -17,6 +18,7 @@ function ModalFormStudy(props) {
   const [endDate, setEndDate] = useState(null);
   const [badEndDate, setBadEndDate] = useState(false)
   const [noSoftwareName, setNoSoftwareName] = useState(false)
+  const {isDemoUser} = useDemoUser()
 
   const onChangeSoftwareName = (e) => {
     const softwareName = e.target.value;
@@ -132,7 +134,7 @@ function ModalFormStudy(props) {
                 alignItems: 'center',
                 marginTop: '5%'
               }}>
-              <Button variant="primary" type="submit" className="btn button-primary">
+              <Button variant="primary" type="submit" className="btn button-primary" disabled={isDemoUser}>
                 Crear Estudio
               </Button>
             </div>
